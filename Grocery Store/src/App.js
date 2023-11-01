@@ -6,10 +6,12 @@ import { populateProduce } from './store/produce'
 
 function App() {
   const [showCart, setShowCart] = useState(false);
+
   const dispatch = useDispatch();
-  useEffect(() =>{
+
+  useEffect(() => {
     dispatch(populateProduce());
-  })
+  }, ([dispatch]));
 
   return (
     <>

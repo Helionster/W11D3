@@ -1,6 +1,6 @@
 import produceData from '../mockData/produce.json'
 
-export default function produceReducer(state = {}, action) {
+export default function cardReducer(state = {}, action) {
     switch (action.type) {
       case POPULATE: 
         const newState = {};
@@ -15,7 +15,7 @@ export default function produceReducer(state = {}, action) {
 
 const POPULATE = 'produce/POPULATE'
 
-export const populateProduce = () => ({
+export const populateCart = () => ({
     type: POPULATE,
     produce: produceData
 });
