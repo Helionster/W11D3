@@ -1,21 +1,17 @@
-import produceData from '../mockData/produce.json'
-
-export default function cardReducer(state = {}, action) {
-    switch (action.type) {
-      case POPULATE: 
-        const newState = {};
-        action.produce.forEach(produce => {
-            newState[produce.id] = produce;
-        })
-        return newState;
-      default:
-        return state;
+export default function cartReducer(state = {}, action) {
+  switch (action.type) {
+    case POPULATE: 
+      const newState = Object.assign({},Object.freeze(state.cart));
+      newState[action.item.id] = action.item;
+      return newState;
+    default:
+      return state;
     }
 }
 
-const POPULATE = 'produce/POPULATE'
+const POPULATE = 'cart/POPULATE'
 
-export const populateCart = () => ({
+export const populateCart = (item) => ({
     type: POPULATE,
-    produce: produceData
+    item
 });

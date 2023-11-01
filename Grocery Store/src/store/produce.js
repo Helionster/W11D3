@@ -5,7 +5,7 @@ export default function produceReducer(state = {}, action) {
       case POPULATE: 
         const newState = {};
         action.produce.forEach(produce => {
-            newState[produce.id] = produce;
+          newState[produce.id] = produce;
         })
         return newState;
       default:
